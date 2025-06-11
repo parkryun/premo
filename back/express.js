@@ -12,7 +12,6 @@ const matchApi = require('./router/match');
 const playerApi = require('./router/player');
 const leagueApi = require('./router/league');
 
-const { errorHandler } = require('./utils/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,7 +34,6 @@ app.use((req, res, next) => {
   res.status(404).json({ message: '요청하신 경로를 찾을 수 없습니다.' });
 });
 
-app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT} 실행 중`);
