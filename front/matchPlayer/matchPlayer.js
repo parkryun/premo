@@ -55,6 +55,31 @@ function updateTeamImage(teamName, teamId) {
 }
 
 /**
+ * 팀 컬러 적용 함수
+ * @param {string} teamColor - 팀 컬러 (예: "141413", "7d1142")
+ */
+function applyTeamColor(teamColor) {
+    if (!teamColor) return;
+    
+    // hex 코드 형식으로 변환 (# 추가)
+    const hexColor = `#${teamColor}`;
+    
+    // player-header 요소 찾기
+    const playerHeader = document.querySelector('.player-header');
+    if (playerHeader) {
+        playerHeader.style.backgroundColor = hexColor;
+        console.log(`player-header 배경색 적용: ${hexColor}`);
+    }
+    
+    // tab-container 요소 찾기
+    const tabContainer = document.querySelector('.tab-container');
+    if (tabContainer) {
+        tabContainer.style.backgroundColor = hexColor;
+        console.log(`tab-container 배경색 적용: ${hexColor}`);
+    }
+}
+
+/**
  * 탭 콘텐츠 로드 함수
  * @param {string} tabName - 탭 이름 ('profile', 'matches', 'stats', 'career')
  */
@@ -104,6 +129,8 @@ function loadPlayerData() {
                 updatePlayerProfile(data.content);
                 // 🔥 레이더 차트에 실제 데이터 적용
                 initRadarChart(data.content);
+                // 🔥 팀 컬러 적용
+                applyTeamColor(data.content.teamColor);
             } else {
                 console.error('API 응답 오류:', data);
             }

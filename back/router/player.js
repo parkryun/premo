@@ -36,12 +36,13 @@ router.get('/matchPlayer', async (req, res, next) => {
         Name: playerData.full_name,
         teamName: playerSubStatData.team_common_name,
         teamId: playerSubStatData.team_id,
+        teamColor: playerSubStatData.team_color,
         playerImage: "null",
         playerBirth: playerData.birth_date,
         playerNationality: playerData.nationality,
-        playerHeight: playerData.height, // db
-        playerPreferredFoot: playerData.preferred_foot, // db
-        playerBackNumber: playerData.shirt, // db
+        playerHeight: playerData.height,  
+        playerPreferredFoot: playerData.preferred_foot, 
+        playerBackNumber: playerData.shirt,  
         position: playerData.primary_position,
         appearances: playerData.matches,
         goals: playerData.goals,
@@ -55,7 +56,6 @@ router.get('/matchPlayer', async (req, res, next) => {
         defensive_actions_percentile: playerSubStatData.defensive_actions_percentile,
         chances_creted_percentile: playerSubStatData.chances_creted_percentile
       };
-      console.log
 
       result.content = playerInfo;
       

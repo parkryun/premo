@@ -25,6 +25,7 @@ const findPlayerSubStat = `
        ps.aerial_duels_won_percentile,
        ps.chances_created_percentile,
        t.team_common_name,
+       t.team_color,
        t.team_id
    FROM premo.player_stat ps
    LEFT JOIN premo.team t ON ps.team_id = t.team_id
